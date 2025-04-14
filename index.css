@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+} 
+header {
+    padding: 50px;
+    color: white;
+    background-image: url("images/hamburgerbanner.jpg");
+}
+
+header h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+header h2 {
+    font-size: 20px;
+    margin: 0;
+}
