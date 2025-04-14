@@ -4,35 +4,51 @@ const menuEl = document.getElementById("menu")
 const orderEl = document.getElementById("order")
 let order = []
 let total = 0
-menuEl.innerHTML = menuArray.map(food => `
-    <div class="option">
-        <img class="option-emoji" src="images/${food.name.toLowerCase()}.png" alt="pizza emoji">
-        <div>
-            <h3 class="option-title">${food.name}</h3>
-            <p class="option-ingredients">${food.ingredients.join(", ")}</p>
-            <p class="option-price">$${food.price}</p>
-        </div>
-        <button class="option-add-btn" data-food-election=${food.name}>+</button>
-    </div>`
-).join("");
 
 document.addEventListener("click", function(e){
     if (e.target.dataset.foodElection){
+        if (e.target.dataset.sumormin === "min"){
+            const index = order.findIndex(food => food.name === e.target.dataset.foodElection)
+            console.log(index)
+            order.splice(index, 1)
+            render(order)
+        } else if (e.target.dataset.sumormin === "sum"){
         const selected = menuArray.filter(food => food.name === e.target.dataset.foodElection)[0]
         let selectedClone = {...selected}
         selectedClone["uuid"] = uuidv4()
         order.push(selectedClone)
         total += selected.price
-        renderOrder(order)
+        render(order)
+        }
     }
     if (e.target.dataset.uuid){
         order = order.filter(food => food.uuid !== e.target.dataset.uuid)
         total -= e.target.dataset.price
-        renderOrder(order)
+        render(order)
+    }
+    if (e.target.dataset.button) {
+        document.getElementById("paying").style.display = "inline"
     }
 })
 
-function renderOrder(order){
+function render(order=[]){
+    menuEl.innerHTML = menuArray.map(food => {
+        const count = order.filter(orderedfood => orderedfood.name === food.name).length
+        return`
+        <div class="option">
+            <img class="option-emoji" src="images/${food.name.toLowerCase()}.png" alt="pizza emoji">
+            <div>
+                <h3 class="option-title">${food.name}</h3>
+                <p class="option-ingredients">${food.ingredients.join(", ")}</p>
+                <p class="option-price">$${food.price}</p>
+            </div>
+            <div class="btns">
+            ${count > 0 ? `<button class="option-add-btn" data-food-election=${food.name} data-sumormin="min">-</button> <p class="count">${count}</p>` : ""}
+            <button class="option-add-btn" data-food-election=${food.name} data-sumormin="sum">+</button>
+            </div>
+        </div>`
+    }).join("")
+    if (order !== '[]'){
     if (order.length === 0){
         orderEl.innerHTML = ``
     } else {
@@ -49,5 +65,7 @@ function renderOrder(order){
             <p class="order-food">Total Price:</p>
             <p class="order-price">$${total}</p>
         </div>
-        <button class="complete-order-btn">Complete order</button>`
-}}
+        <button data-button="complete"class="complete-order-btn">Complete order</button>`
+}}}
+
+render()

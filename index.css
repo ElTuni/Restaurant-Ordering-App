@@ -73,7 +73,6 @@ header h2 {
     border-radius: 50%;
     border: 1px solid gainsboro;
     background-color: white;
-    margin-left: auto;
 
 }
 
@@ -122,4 +121,47 @@ header h2 {
     color: white;
     background-color: #15db99;
     border-radius: 5px;
+}
+
+input{
+    padding: 10px;
+    width: 250px;
+    margin: 5px;
+    font-family: inherit;
+    border-radius: 5px;
+    border: 1px solid rgb(168, 168, 168);
+}
+
+.paying .complete-order-btn {
+    width: 250px;
+    margin-top: 15px;
+}
+.paying {
+    display: none;
+    position: fixed;
+    text-align: center;
+    background-color:rgb(56, 0, 0);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 310px;
+    margin: auto;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.438);
+    border-radius: 5px;
+}
+
+.count {
+    text-align: center;
+}
+
+.btns {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: right;
+    gap: 15px;
 }
