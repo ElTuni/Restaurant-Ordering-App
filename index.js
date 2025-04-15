@@ -2,8 +2,10 @@ import menuArray from "/data.js"
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid'
 const menuEl = document.getElementById("menu")
 const orderEl = document.getElementById("order")
+const formEl = document.getElementById("form")
 let order = []
-let total = 0
+let fullOrder = ``
+let thanks = ''
 
 document.addEventListener("click", function(e){
     if (e.target.dataset.foodElection){
@@ -17,13 +19,11 @@ document.addEventListener("click", function(e){
         let selectedClone = {...selected}
         selectedClone["uuid"] = uuidv4()
         order.push(selectedClone)
-        total += selected.price
         render(order)
         }
     }
     if (e.target.dataset.uuid){
         order = order.filter(food => food.uuid !== e.target.dataset.uuid)
-        total -= e.target.dataset.price
         render(order)
     }
     if (e.target.dataset.button) {
@@ -31,7 +31,38 @@ document.addEventListener("click", function(e){
     }
 })
 
+formEl.addEventListener("submit", function(e){
+    e.preventDefault()
+    document.getElementById("paying").style.display = "none"
+    order = []
+    
+    thanks = `<p class="thanks container">Thanks, ${document.getElementById("username").value}! Your order is on its way!</p>`
+    document.getElementById("form").reset()
+    render()
+})
+
+
+
 function render(order=[]){
+    if (order.length === 0){
+        fullOrder = ``
+    } else {
+    thanks = ''
+    const menuElection = order.map(food => `
+        <div class="order-election">
+            <p class="order-food">${food.name}</p>
+            <button class="remove" data-uuid=${food.uuid} data-price=${food.price}>remove</button>
+            <p class="order-price">$${food.price}</p>
+        </div>`).join("")
+    fullOrder = `
+        <h3 class="order-title">Your order</h3>
+        ${menuElection}
+        <div class="total">
+            <p class="order-food">Total Price:</p>
+            <p class="order-price">$${order.map(food => food.price).reduce((accumulator, currentValue) => accumulator + currentValue, 0)}</p>
+        </div>
+        <button data-button="complete"class="complete-order-btn">Complete order</button>`
+    }
     menuEl.innerHTML = menuArray.map(food => {
         const count = order.filter(orderedfood => orderedfood.name === food.name).length
         return`
@@ -47,25 +78,7 @@ function render(order=[]){
             <button class="option-add-btn" data-food-election=${food.name} data-sumormin="sum">+</button>
             </div>
         </div>`
-    }).join("")
-    if (order !== '[]'){
-    if (order.length === 0){
-        orderEl.innerHTML = ``
-    } else {
-    const menuElection = order.map(food => `
-        <div class="order-election">
-            <p class="order-food">${food.name}</p>
-            <button class="remove" data-uuid=${food.uuid} data-price=${food.price}>remove</button>
-            <p class="order-price">$${food.price}</p>
-        </div>`).join("")
-    orderEl.innerHTML = `
-        <h3 class="order-title">Your order</h3>
-        ${menuElection}
-        <div class="total">
-            <p class="order-food">Total Price:</p>
-            <p class="order-price">$${total}</p>
-        </div>
-        <button data-button="complete"class="complete-order-btn">Complete order</button>`
-}}}
+    }).join("") + fullOrder + thanks
+}
 
 render()

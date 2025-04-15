@@ -1,10 +1,12 @@
 <html>
     <head>
-       <link rel="stylesheet" href="index.css">
+        <meta name="viewport">
+        <link rel="stylesheet" href="index.css">
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <title>Restaurant ordering app - bytuni</title>
     </head>
     <body>
         <header>
@@ -13,18 +15,17 @@
         </header>
         <section id="menu"class="container">
         </section>
-        <section id="order" class="container">
-        </section>
+        
         <section class="paying" id="paying">
             <h2>Enter card details</h2>
-            <form >
-                <input required oninvalid="this.setCustomValidity('Please enter only letters')" oninput="this.setCustomValidity('')" autocomplete="name" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" maxlength="25" type="text" placeholder="Enter your name" aria-label="Enter your name">
+            <form id="form">
+                <input required oninvalid="this.setCustomValidity('Please enter only letters')" oninput="this.setCustomValidity('')" autocomplete="name" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" maxlength="25" type="text" placeholder="Enter your name" id="username" aria-label="Enter your name">
                 <input required oninvalid="this.setCustomValidity('Please enter only numbers between 13 and 16 characters long')" oninput="this.setCustomValidity('')"type="tel" inputmode="numeric" pattern="^\d{13,16}$" autocomplete="cc-number" maxlength="16" placeholder="Enter card number" aria-label="Enter card number">
                 <input required minlength="3" maxlength="3" type="password" placeholder="Enter CVV" aria-label="Enter CVV">
                 <button type="submit" class="complete-order-btn">Pay</button>
             </form>
         </section>
-	<script type="module" src="index.js"></script>
+	    <script type="module" src="index.js"></script>
     </body>
 </html>
 
