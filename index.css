@@ -2,7 +2,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: "Poppins", sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 1em;
 } 
 
 /* margin 0 */
@@ -11,15 +11,15 @@ header h1, header h2, .option-title, .option-ingredients, .option-price, .order-
 }
 
 .container, .thanks {
-    width: 600px;
+    max-width: 600px;
     box-sizing: border-box;
-    padding-left: 50px;
-    padding-right: 50px;
     margin: auto;
 }
 
 header {
-    padding: 50px;
+    text-align: center;
+    padding: 2em 0 2em 0;
+    width: 100%;
     color: white;
     background-image: url("images/hamburgerbanner.jpg");
     background-size: cover;
@@ -27,24 +27,24 @@ header {
 } 
 
 header h1 {
-    font-size: 40px;
+    font-size: 2rem;
 }
 
 header h2 {
-    font-size: 20px;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .option {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 3em;
     display: flex;
     align-items: center;
     border-bottom: 1px rgb(223, 223, 223) solid;
 }
 
 .option-emoji {
-    width: 70px;
-    margin-right: 20px;
+    width: 4.5rem;
+    margin-right: 1.25em;
 }
 
 .option-title {
@@ -54,28 +54,31 @@ header h2 {
 
 .option-ingredients {
     font-weight: 300;
-    font-size: 10px;
+    font-size: 0.6rem;
     color: grey;
-    width: 170px;
+    /* border: 1px red solid; */
 }
 
 .option-price {
     font-weight: 500;
-    margin-top: 8px;
-    font-size: 14px;
+    margin-top: 0.5em;
+    font-size: 0.9rem;
 }
 
 .option-add-btn {
     font-family: inherit;
     color: rgb(100, 100, 100);
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
+    width: 2em;
+    height: 2em;
+    font-size: 1.375rem;
     font-weight: 300;
     border-radius: 50%;
     border: 1px solid gainsboro;
     background-color: white;
+}
 
+.order {
+    padding: 0 3em 0 3em;
 }
 
 .order-title {
@@ -86,8 +89,8 @@ header h2 {
 .order-election {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: 8px 0 8px 0;
+    gap: 0.625rem;
+    margin: 0.5em 0 0.5em 0;
 }
 
 .order-food {
@@ -96,7 +99,7 @@ header h2 {
 
 .remove {
     color: gainsboro;
-    font-size: 10px;
+    font-size: 0.625rem;
     background: none;
     font-family: inherit;
     border: none;
@@ -105,20 +108,20 @@ header h2 {
 .order-price {
     margin-left: auto;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.9rem;
 }
 
 .total {
     border-top: 2px solid rgb(27, 27, 27);
-    padding-top: 5px;
+    padding-top: 0.625em;
     display: flex;
 }
 
 .complete-order-btn {
-    margin-top: 30px;
+    margin-top: 2em;
     width: 100%;
     border: none;
-    padding: 15px;
+    padding: 1em;
     font-weight: 700;
     color: white;
     background-color: #15db99;
@@ -126,9 +129,9 @@ header h2 {
 }
 
 input{
-    padding: 10px;
+    padding: 0.625em;
     width: 250px;
-    margin: 5px;
+    margin: 0.25em;
     font-family: inherit;
     border-radius: 5px;
     border: 1px solid rgb(168, 168, 168);
@@ -136,7 +139,7 @@ input{
 
 .paying .complete-order-btn {
     width: 250px;
-    margin-top: 15px;
+    margin-top: 0.5em;
 }
 .paying {
     display: none;
@@ -147,10 +150,10 @@ input{
     bottom: 0;
     right: 0;
     top: 0;
-    width: 300px;
-    height: 310px;
+    max-width: 300px;
+    height: fit-content;
     margin: auto;
-    padding: 8px;
+    padding: 0.5em;
     background-color: white;
     box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.438);
     border-radius: 5px;
@@ -165,7 +168,7 @@ input{
     width: 100%;
     align-items: center;
     justify-content: right;
-    gap: 15px;
+    gap: 1em;
 }
 
 .thanks {
@@ -173,7 +176,6 @@ input{
     color: #065F46;
     background-color: #ECFDF5;
     border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-    width: 500px;
+    padding: 0.6em;
+    margin-top: 0.5em;
 }

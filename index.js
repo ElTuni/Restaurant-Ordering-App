@@ -55,13 +55,15 @@ function render(order=[]){
             <p class="order-price">$${food.price}</p>
         </div>`).join("")
     fullOrder = `
-        <h3 class="order-title">Your order</h3>
-        ${menuElection}
-        <div class="total">
-            <p class="order-food">Total Price:</p>
-            <p class="order-price">$${order.map(food => food.price).reduce((accumulator, currentValue) => accumulator + currentValue, 0)}</p>
-        </div>
-        <button data-button="complete"class="complete-order-btn">Complete order</button>`
+        <div class="order">
+            <h3 class="order-title">Your order</h3>
+            ${menuElection}
+            <div class="total">
+                <p class="order-food">Total Price:</p>
+                <p class="order-price">$${order.map(food => food.price).reduce((accumulator, currentValue) => accumulator + currentValue, 0)}</p>
+            </div>
+            <button data-button="complete"class="complete-order-btn">Complete order</button>
+        </div>`
     }
     menuEl.innerHTML = menuArray.map(food => {
         const count = order.filter(orderedfood => orderedfood.name === food.name).length
