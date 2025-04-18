@@ -36,8 +36,9 @@ header h2 {
 }
 
 .option {
-    padding: 3em;
     display: flex;
+    flex-wrap: wrap;
+    padding: 2em;
     align-items: center;
     border-bottom: 1px rgb(223, 223, 223) solid;
 }
@@ -75,6 +76,8 @@ header h2 {
     border-radius: 50%;
     border: 1px solid gainsboro;
     background-color: white;
+    margin: 0;
+    padding: 0;
 }
 
 .order {
@@ -147,7 +150,7 @@ input{
     text-align: center;
     background-color:rgb(56, 0, 0);
     left: 0;
-    bottom: 0;
+    bottom: 0 ;
     right: 0;
     top: 0;
     max-width: 300px;
@@ -160,14 +163,15 @@ input{
 }
 
 .count {
-    text-align: center;
+    margin: 0;
 }
 
 .btns {
     display: flex;
-    width: 100%;
     align-items: center;
-    justify-content: right;
+    justify-content: center;
+    margin-top: 1.5em;
+    flex-basis: 100%;
     gap: 1em;
 }
 
@@ -177,5 +181,5 @@ input{
     background-color: #ECFDF5;
     border-radius: 5px;
     padding: 0.6em;
-    margin-top: 0.5em;
+    margin: 0.5em;
 }

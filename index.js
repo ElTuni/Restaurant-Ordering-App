@@ -76,8 +76,10 @@ function render(order=[]){
                 <p class="option-price">$${food.price}</p>
             </div>
             <div class="btns">
-            ${count > 0 ? `<button class="option-add-btn" data-food-election=${food.name} data-sumormin="min">-</button> <p class="count">${count}</p>` : ""}
-            <button class="option-add-btn" data-food-election=${food.name} data-sumormin="sum">+</button>
+                ${count > 0 ? `
+                    <button class="option-add-btn" data-food-election=${food.name} data-sumormin="min">-</button>
+                    <p class="count">${count}</p> ` : ""}
+                <button class="option-add-btn" data-food-election=${food.name} data-sumormin="sum">+</button>
             </div>
         </div>`
     }).join("") + fullOrder + thanks
