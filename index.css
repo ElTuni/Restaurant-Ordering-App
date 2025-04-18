@@ -184,7 +184,7 @@ input{
     margin: 0.5em;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 950px) {
     .option {
         flex-wrap: nowrap;
     }
@@ -192,6 +192,13 @@ input{
     header {
         padding: 4em 4em 4em 3em;
         text-align: left;
+    }
+    header h1 {
+        font-size: 3rem;
+    }
+    
+    header h2 {
+        font-size: 1.2rem;
     }
 
     .btns {
