@@ -183,3 +183,24 @@ input{
     padding: 0.6em;
     margin: 0.5em;
 }
+
+@media (min-width: 1024px) {
+    .option {
+        flex-wrap: nowrap;
+    }
+
+    header {
+        padding: 4em 4em 4em 3em;
+        text-align: left;
+    }
+
+    .btns {
+        margin-top: 0;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .container {
+        max-width: 900px;
+    }
+}
